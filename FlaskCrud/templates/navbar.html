@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Task</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background:#f4f9ff;
+    }
+
+    .custom-navbar {
+      background: linear-gradient(90deg, #0055ff, #00c3ff);
+    }
+    .nav-link {
+      color: white !important;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .nav-link:hover {
+      color: #ffe268 !important;
+      transform: scale(1.07);
+    }
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 22px;
+    }
+    .navbar-brand:hover {
+      color: #ffe268 !important;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg custom-navbar shadow-sm">
+  <div class="container">
+    <a class="navbar-brand text-white" href="/viewtasks">
+      <i class="fa-solid fa-graduation-cap"></i> Student Data Management System
+    </a>
+
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="menu">
+      <ul class="navbar-nav gap-3">
+
+        <li class="nav-item">
+          <!-- IMPORTANT: href="#" rakho otherwise page reload hoga -->
+          <a class="nav-link" href="#" id="taskBtn">
+            <i class="fa-solid fa-pen-to-square"></i> Add Task
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/viewtask">
+            <i class="fa-solid fa-eye"></i> View Task
+          </a>
+        </li> 
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ADD TASK FORM CARD -->
+<div class="container mt-5" style="max-width:650px;" id="taskCard">
+  <div class="card shadow p-4">
+    <h3 class="text-center text-primary fw-bold mb-4">Add New Task</h3>
+
+    <form action="/addtask" method="POST">
+      <label class="fw-semibold">Task Title</label>
+      <input type="text" name="title" class="form-control mb-3" required>
+
+      <label class="fw-semibold">Task Description</label>
+      <textarea name="description" class="form-control mb-3" rows="4" required></textarea>
+
+      <button class="btn btn-primary w-100 fw-semibold">Save Task</button>
+    </form>
+  </div>
+</div>
+
+
+<!-- JAVASCRIPT -->
+<script>
+let btn = document.getElementById("taskBtn");
+let card = document.getElementById("taskCard");
+
+// Hide form initially
+card.style.display = "none";
+
+// Show form when Add Task is clicked
+btn.onclick = function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    card.style.display = "block";
+};
+
+// Hide form when clicking outside
+document.onclick = function(event) {
+    if (!card.contains(event.target) && event.target !== btn) {
+        card.style.display = "none";
+    }
+};
+</script>
+
+</body>
+</html>

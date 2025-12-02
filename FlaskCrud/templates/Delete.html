@@ -1,0 +1,17 @@
+<body style="background:#f4f9ff;">
+{% include 'navbar.html' %}
+
+<div class="container mt-5" style="max-width:650px;">
+  <div class="card shadow p-4">
+    <h3 class="text-center text-danger fw-bold mb-4">Delete Task</h3>
+
+    <form action="/delete" method="POST">
+      <label class="fw-semibold">Enter Task ID</label>
+      <input type="number" name="id" class="form-control mb-3" required>
+
+      <button class="btn btn-danger w-100 fw-semibold">Delete Task</button>
+    </form>
+
+  </div>
+</div>
+</body>

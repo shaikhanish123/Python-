@@ -1,0 +1,19 @@
+<body style="background:#f4f9ff;">
+{% include 'navbar.html' %}
+
+<div class="container mt-5" style="max-width:650px;" id="taskCard">
+  <div class="card shadow p-4">
+    <h3 class="text-center text-primary fw-bold mb-4">Add New Task</h3>
+
+    <form action="/addtask" method="POST">
+      <label class="fw-semibold">Task Title</label>
+      <input type="text" name="title" class="form-control mb-3" required>
+
+      <label class="fw-semibold">Task Description</label>
+      <textarea name="description" class="form-control mb-3" rows="4" required></textarea>
+
+      <button class="btn btn-primary w-100 fw-semibold" >Save Task</button>
+    </form>
+  </div>
+</div>
+</body>
